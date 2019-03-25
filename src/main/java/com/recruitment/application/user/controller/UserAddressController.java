@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Controller
 @RestController
 @RequestMapping("/application")
@@ -20,7 +22,7 @@ public class UserAddressController {
     }
 
     @PostMapping(value = "address/{userId}")
-    private void addAddressToExistingUser(@RequestBody UserAddressDto userAddressDto, @PathVariable Long userId) throws UserNotFoundException {
+    private void addAddressToExistingUser(@Valid @RequestBody UserAddressDto userAddressDto, @PathVariable Long userId) throws UserNotFoundException {
         userAddressFacade.addAddressToExistingUser(userAddressDto, userId);
     }
 

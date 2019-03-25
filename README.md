@@ -6,26 +6,29 @@ Możliwe jest dodanie nowego pracownika wraz z adresem, dodanie adresu do istnie
 Aplikacja wystawia endpoint swaggera umożliwający sprawdzenie wystawionych endpointów do zarządzania aplikacją. 
 http://localhost:8080/swagger-ui.html
 
-http://localhost:8080/application/address/userId - zapisywanie adresu (tylko jeśli najpierw zostanie zapisywany user): 
-POST /address/1 HTTP/1.1
-Host: localhost:8080
-Content-Type: application/json
-cache-control: no-cache
-{
-                "city": "TESTADRESS",
-                "postalCode": "TEST",
-                "country": "TEST",
-                "street": "123123"
-}
+http://localhost:8080/application/address/{userId} - zapisywanie adresu (tylko jeśli najpierw zostanie zapisywany user): 
+curl -X POST \
+  http://localhost:8080/application/address/1 \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache' \
+  -d '{
+                      "city": "TESTADRESS",
+                      "postalCode": "50-550",
+                      "country": "TEST",
+                      "street": "123123"
+}'
 
-http://localhost:8080/application/users - > pobieranie użytkowników 
+http://localhost:8080/application/users - > pobieranie użytkowników  curl:
+curl -X GET \
+  http://localhost:8080/application/users \
+  -H 'cache-control: no-cache'
 
 http://localhost:8080/application/user - > POST do zapisywania nowego użytkownika: przykładowy curl:
-POST /application/user HTTP/1.1
-Host: localhost:8080
-Content-Type: application/json
-cache-control: no-cache
-{
+curl -X POST \
+  http://localhost:8080/application/user \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache' \
+  -d '{
         "firstName": "test",
         "lastName": "TEST",
         "pesel": 11111111111,
@@ -63,6 +66,5 @@ cache-control: no-cache
                 "street": "123123"
             }
         ]
-}
-
+}'
 
