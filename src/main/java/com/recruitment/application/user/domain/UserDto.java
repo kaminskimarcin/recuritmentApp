@@ -1,5 +1,7 @@
 package com.recruitment.application.user.domain;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.validation.constraints.*;
 import java.util.Set;
 
@@ -10,13 +12,18 @@ public class UserDto {
     private final static String USER_ADDRESS_NOT_NULL = "Adres nowego pracownika nie może być pusty";
 
     @NotBlank(message = USER_FIRSTNAME_NOT_BLANK)
+    @ApiModelProperty(value = "firstName", example  = "testFirstName")
     private String firstName;
     @NotBlank(message = USER_LASTNAME_NOT_BLANK)
+    @ApiModelProperty(value = "lastName", example  = "testLastName")
     private String lastName;
     @Size(max = 11, min = 11, message = USER_PESEL_NOT_VALID_SIZE)
+    @ApiModelProperty(value = "pesel", example  = "11111111111")
     private String pesel;
     @Email
+    @ApiModelProperty(value = "email", example  = "test@test.pl")
     private String email;
+    @ApiModelProperty(value = "phoneNumber", example  = "123456789")
     private Integer phoneNumber;
     @NotNull(message = USER_ADDRESS_NOT_NULL)
     private Set<UserAddressDto> userAddresses;

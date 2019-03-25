@@ -3,6 +3,7 @@ package com.recruitment.application.user.controller;
 import com.recruitment.application.user.domain.User;
 import com.recruitment.application.user.domain.UserDto;
 import com.recruitment.application.user.facade.UserFacade;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +28,8 @@ public class UserController {
     }
 
     @PostMapping(value = "/user")
+    @ApiModelProperty(value = "Address", name = "addLines", dataType = "List",
+            example = "[AddLine1,AddLine2,AddLine3,AddLine4]")
     private void addUser(@Valid @RequestBody UserDto userDto) {
         userFacade.saveUser(userDto);
     }

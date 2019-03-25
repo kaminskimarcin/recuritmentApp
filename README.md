@@ -4,9 +4,10 @@ Aplikacja udostępnia restowe endpointy do zarządzania pracownikami i ich adres
 Możliwe jest dodanie nowego pracownika wraz z adresem, dodanie adresu do istniejącego użytkownika, jak również przeglądnięcie wszystkich pracowników wraz z ich adresami. 
 
 Aplikacja wystawia endpoint swaggera umożliwający sprawdzenie wystawionych endpointów do zarządzania aplikacją. 
-http://localhost:8080/swagger-ui.html
+http://localhost:8080/swagger-ui.html -> Dla metody POST można podejrzeć przykładowe jsony przechodzące walidację
 
 http://localhost:8080/application/address/{userId} - zapisywanie adresu (tylko jeśli najpierw zostanie zapisywany user): 
+
 curl -X POST \
   http://localhost:8080/application/address/1 \
   -H 'Content-Type: application/json' \
@@ -18,12 +19,15 @@ curl -X POST \
                       "street": "123123"
 }'
 
+
 http://localhost:8080/application/users - > pobieranie użytkowników  curl:
+
 curl -X GET \
   http://localhost:8080/application/users \
   -H 'cache-control: no-cache'
 
 http://localhost:8080/application/user - > POST do zapisywania nowego użytkownika: przykładowy curl:
+
 curl -X POST \
   http://localhost:8080/application/user \
   -H 'Content-Type: application/json' \
