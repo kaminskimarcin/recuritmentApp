@@ -72,3 +72,10 @@ curl -X POST \
         ]
 }'
 
+
+Pola do rozwoju (Nie możliwe do zrealizowania na moment commita z powodu braku czasu):
+1) Zwiększenie pokrycia kodu testami, dodanie testów controllerów i service
+2) Migracja bazy - flyway
+3) Dodanie pliku message.properties
+4) Poprawki walidacji
+5) Dodanie lomboka (Dogranie wersji lomboka i biblioteki Jackson - w niektórych wersjach występują problemy z korzystaniem z @JsonIgnore przy używaniu lomboka)
